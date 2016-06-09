@@ -12,6 +12,19 @@ class ChecklistViewController: UITableViewController {
     
     var items: [ChecklistItem]
     
+    @IBAction func addItem() {
+    let newRowIndex = items.count
+    let item = ChecklistItem()
+        item.text = "I am a new row"
+        item.checked = false
+        items.append(item)
+        
+        let indexPath = NSIndexPath(forRow: newRowIndex, inSection: 0)
+        let indexPaths = [indexPath]
+        tableView.insertRowsAtIndexPaths(indexPaths,
+                                                    withRowAnimation: .Automatic)
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         
         items = [ChecklistItem]()
@@ -43,6 +56,8 @@ class ChecklistViewController: UITableViewController {
         
         super.init(coder: aDecoder)
     }
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,6 +109,16 @@ class ChecklistViewController: UITableViewController {
                               withChecklistItem item: ChecklistItem) {
         let label = cell.viewWithTag(1000) as! UILabel
         label.text = item.text
+    }
+    
+    override func tableView(tableView: UITableView,
+                            commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        // 1
+        items.removeAtIndex(indexPath.row)
+        // 2
+        let indexPaths = [indexPath]
+        tableView.deleteRowsAtIndexPaths(indexPaths,
+                                withRowAnimation: .Automatic)
     }
 }
 
