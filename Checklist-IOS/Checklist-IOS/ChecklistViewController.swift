@@ -63,18 +63,27 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
     
     func addItemViewController(controller: AddItemViewController,
                                didFinishAddingItem item: ChecklistItem) {
+        let newRowIndex = items.count
+        
+        items.append(item)
+        let indexPath = NSIndexPath(forRow: newRowIndex, inSection: 0)
+        let indexPaths = [indexPath]
+        tableView.insertRowsAtIndexPaths(indexPaths,
+                                         withRowAnimation: .Automatic)
+        
         dismissViewControllerAnimated(true, completion: nil)
     }
     
     
     override func prepareForSegue(segue: UIStoryboardSegue,
                                   sender: AnyObject?) {
-        if segue.identifier == "AddItem" { // 2
+        if segue.identifier == "AddItem" {
+            // 2
             let navigationController = segue.destinationViewController
-                as! UINavigationController
+                                                    as! UINavigationController
             // 3
             let controller = navigationController.topViewController
-                as! AddItemViewController
+                                                    as! AddItemViewController
             // 4
             controller.delegate = self
         }
