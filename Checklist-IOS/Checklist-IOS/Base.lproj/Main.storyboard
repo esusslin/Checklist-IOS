@@ -42,7 +42,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="l6d-VQ-J4H" kind="presentation" identifier="EditItem" id="511-K8-O6b"/>
+                                    <segue destination="l6d-VQ-J4H" kind="presentation" identifier="EditItem" trigger="accessoryAction" id="a22-h8-8Q4"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -66,7 +66,7 @@
         <!--Add Item-->
         <scene sceneID="9jQ-DA-bn0">
             <objects>
-                <tableViewController id="AxB-HT-KA1" customClass="AddItemViewController" customModule="Checklist_IOS" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="AxB-HT-KA1" customClass="ItemDetailViewController" customModule="Checklist_IOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="9m1-Tm-9kZ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -114,6 +114,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="doneBarButton" destination="Vr0-JM-QUl" id="Epq-Cs-oID"/>
                         <outlet property="textField" destination="h2c-4r-gOA" id="Kyd-iv-Q94"/>
                     </connections>
                 </tableViewController>
@@ -159,6 +160,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="511-K8-O6b"/>
+        <segue reference="a22-h8-8Q4"/>
     </inferredMetricsTieBreakers>
 </document>

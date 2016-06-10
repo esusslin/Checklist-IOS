@@ -1,5 +1,5 @@
 //
-//  AddItemViewController.swift
+//  ItemDetailoViewController.swift
 //  Checklist-IOS
 //
 //  Created by Emmet Susslin on 6/9/16.
